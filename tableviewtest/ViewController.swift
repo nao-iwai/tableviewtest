@@ -43,5 +43,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    // セルがタップされた時
+    func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
+        println(texts[indexPath.row])
+    }
+    
 }
 

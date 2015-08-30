@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>65D64E4B-C872-41A8-A39E-24EE0FF45BDF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>tableviewtest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2E42999631C2D5721F061377C007C9FE89E562B5</key>
+		<string>https://github.com/senseiswift/tableviewtest.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>tableviewtest.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2E42999631C2D5721F061377C007C9FE89E562B5</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/senseiswift/tableviewtest.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2E42999631C2D5721F061377C007C9FE89E562B5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2E42999631C2D5721F061377C007C9FE89E562B5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>tableviewtest</string>
+		</dict>
+	</array>
+</dict>
+</plist>
