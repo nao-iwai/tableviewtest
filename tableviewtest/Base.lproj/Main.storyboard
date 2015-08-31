@@ -25,10 +25,38 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="H6b-yd-8Ei" id="iUt-r4-a8z"/>
+                        <segue destination="GEZ-21-FSr" kind="show" identifier="showSecondView" id="hJ9-S4-cPi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="hmu-Vw-AT0">
+            <objects>
+                <viewController id="GEZ-21-FSr" customClass="SecondViewController" customModule="tableviewtest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NVl-m5-cDj"/>
+                        <viewControllerLayoutGuide type="bottom" id="ikc-MM-hQ6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3e2-VJ-FMg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Blm-Tx-76J">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Blm-Tx-76J" id="V0z-7n-oJw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FYs-vs-ngo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1121" y="315"/>
         </scene>
     </scenes>
 </document>

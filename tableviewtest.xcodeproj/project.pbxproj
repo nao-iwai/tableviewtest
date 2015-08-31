@@ -13,6 +13,7 @@
 		FFC8F3D71B92C57A00B6962F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFC8F3D61B92C57A00B6962F /* Images.xcassets */; };
 		FFC8F3DA1B92C57A00B6962F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFC8F3D81B92C57A00B6962F /* LaunchScreen.xib */; };
 		FFC8F3E61B92C57A00B6962F /* tableviewtestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC8F3E51B92C57A00B6962F /* tableviewtestTests.swift */; };
+		FFC8F41E1B94822D00B6962F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC8F41D1B94822D00B6962F /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		FFC8F3DF1B92C57A00B6962F /* tableviewtestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tableviewtestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC8F3E41B92C57A00B6962F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFC8F3E51B92C57A00B6962F /* tableviewtestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableviewtestTests.swift; sourceTree = "<group>"; };
+		FFC8F41D1B94822D00B6962F /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				FFC8F3D61B92C57A00B6962F /* Images.xcassets */,
 				FFC8F3D81B92C57A00B6962F /* LaunchScreen.xib */,
 				FFC8F3CD1B92C57A00B6962F /* Supporting Files */,
+				FFC8F41D1B94822D00B6962F /* SecondViewController.swift */,
 			);
 			path = tableviewtest;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC8F41E1B94822D00B6962F /* SecondViewController.swift in Sources */,
 				FFC8F3D21B92C57A00B6962F /* ViewController.swift in Sources */,
 				FFC8F3D01B92C57A00B6962F /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +413,7 @@
 				FFC8F3EB1B92C57A00B6962F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FFC8F3EC1B92C57A00B6962F /* Build configuration list for PBXNativeTarget "tableviewtestTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				FFC8F3EE1B92C57A00B6962F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
