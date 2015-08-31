@@ -14,6 +14,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // 2. StoryBoardとつなぐ
     @IBOutlet weak var tableView: UITableView!
     
+    var selectedText: String?
+    
     // 5. テーブルに表示するテキスト
     let texts = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     
@@ -49,7 +51,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         println(texts[indexPath.row])
         
-        // SubViewController へ遷移するために Segue を呼び出す
+        selectedText = texts[indexPath.row]
+        
+        // SecondViewController へ遷移するために Segue を呼び出す
         performSegueWithIdentifier("showSecondView",sender: nil)
 
     }
@@ -58,7 +62,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "showSecondView") {
             let secondVC: SecondViewController = (segue.destinationViewController as? SecondViewController)!
-            // SubViewController のselectedImgに選択された画像を設定する
+
+            // SecondViewController のtextに選択された文字列を設定する
+            secondVC.text = selectedText
         }
     }
     
