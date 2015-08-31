@@ -8,11 +8,11 @@
 
 import UIKit
 
-// 3. UITableViewDataSourceとUITableViewDelegateを追加する
 class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
+    // 9. ViewControllerから受け取る文字列を入れる変数
     var text: String?
     
     override func viewDidLoad() {
@@ -35,6 +35,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
+        // 10. 受け取った文字列をセルに表示
         cell.textLabel?.text = text
         return cell
     }
@@ -42,6 +43,4 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         println(text)
     }
-    
-
 }
