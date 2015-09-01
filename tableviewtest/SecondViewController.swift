@@ -12,7 +12,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    // 9. ViewControllerから受け取る文字列を入れる変数
+    // ViewControllerから受け取る文字列を入れる変数
     var text: String?
     
     override func viewDidLoad() {
@@ -35,12 +35,13 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
-        // 10. 受け取った文字列をセルに表示
+        // 受け取った文字列をセルに表示
         cell.textLabel?.text = text
         return cell
     }
     
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
-        println(text)
+        // 1. セル選択時にmodal(自分自身)の非表示処理を追加
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

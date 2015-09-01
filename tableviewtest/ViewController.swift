@@ -12,8 +12,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     
-    // 7. SecondViewに渡す文字列
+    // SecondViewに渡す文字列
     var selectedText: String?
+    
+    // 2. 選択状態を解除するIndexPathを入れる変数
+    var selectedRow: NSIndexPath?
     
     // テーブルに表示するテキスト
     let texts = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -23,6 +26,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    // 4. 画面が表示される時に呼ばれるメソッドを追加
+    override func viewWillAppear(animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        // 5. selectedRowがセットされていたら選択を解除する
+        if (selectedRow != nil)
+        {
+            tableView?.deselectRowAtIndexPath(selectedRow!, animated: false)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,12 +60,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         println(texts[indexPath.row])
         
-        // 8. SecondViewControllerに渡す文字列をセット
+        // SecondViewControllerに渡す文字列をセット
         selectedText = texts[indexPath.row]
         
-        // 8. SecondViewControllerへ遷移するSegueを呼び出す
+        // SecondViewControllerへ遷移するSegueを呼び出す
         performSegueWithIdentifier("showSecondView",sender: nil)
 
+        // 3. 選択状態を解除するIndexPathをセット
+        selectedRow = indexPath
     }
     
     // Segueで遷移時の処理
@@ -59,7 +75,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if (segue.identifier == "showSecondView") {
             let secondVC: SecondViewController = (segue.destinationViewController as? SecondViewController)!
 
-            // 11. SecondViewControllerのtextに選択した文字列を設定する
+            // SecondViewControllerのtextに選択した文字列を設定する
             secondVC.text = selectedText
         }
     }
