@@ -15,11 +15,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // SecondViewに渡す文字列
     var selectedText: String?
     
-    // 2. 選択状態を解除するIndexPathを入れる変数
+    // 選択状態を解除するIndexPathを入れる変数
     var selectedRow: NSIndexPath?
     
-    // テーブルに表示するテキスト
-    let texts = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    // 1. テーブルに表示するテキストを変更
+    let texts = ["マクドナルド", "モスバーガー", "バーガーキング", "ウェンディーズ", "フレッシュネスバーガー", "サブウェイ"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +28,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
     }
     
-    // 4. 画面が表示される時に呼ばれるメソッドを追加
+    // 4画面が表示される時に呼ばれるメソッドを追加
     override func viewWillAppear(animated: Bool) {
         super.viewDidDisappear(animated)
 
-        // 5. selectedRowがセットされていたら選択を解除する
+        // selectedRowがセットされていたら選択を解除する
         if (selectedRow != nil)
         {
             tableView?.deselectRowAtIndexPath(selectedRow!, animated: false)
@@ -66,7 +66,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // SecondViewControllerへ遷移するSegueを呼び出す
         performSegueWithIdentifier("showSecondView",sender: nil)
 
-        // 3. 選択状態を解除するIndexPathをセット
+        // 選択状態を解除するIndexPathをセット
         selectedRow = indexPath
     }
     

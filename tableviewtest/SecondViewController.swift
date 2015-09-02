@@ -27,21 +27,48 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    // 2. テーブルの行数を追加
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     // セルのテキストを追加
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
-        // 受け取った文字列をセルに表示
-        cell.textLabel?.text = text
+        if (indexPath.row == 0)
+        {
+            // 受け取った文字列をセルに表示
+            cell.textLabel?.text = text
+            return cell
+        }
+        else if (indexPath.row == 1)
+        {
+            // 3. テーブルの2行目に文言を追加
+            cell.textLabel?.text = text! + "についてGoogleで調べる"
+            return cell
+        }
+        
         return cell
     }
     
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
-        // 1. セル選択時にmodal(自分自身)の非表示処理を追加
-        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        if (indexPath.row == 0)
+        {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        else if (indexPath.row == 1)
+        {
+            // 4. テーブルの2行目をタップした時にURLを生成してSafariを起動
+            var url : NSString = "https://www.google.co.jp/search?q=" + text!
+            var urlStr : NSString = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+            var searchURL : NSURL = NSURL(string: urlStr as String)!
+            println(searchURL)
+            
+            if UIApplication.sharedApplication().canOpenURL(searchURL){
+                UIApplication.sharedApplication().openURL(searchURL)
+            }
+        }
     }
 }
