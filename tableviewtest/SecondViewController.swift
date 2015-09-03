@@ -8,6 +8,9 @@
 
 import UIKit
 
+// 1. SLComposeViewControllerを使うためにSocialをimport
+import Social
+
 class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
@@ -29,7 +32,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     // 2. テーブルの行数を追加
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     // セルのテキストを追加
@@ -44,8 +47,14 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         }
         else if (indexPath.row == 1)
         {
-            // 3. テーブルの2行目に文言を追加
+            // テーブルの2行目に文言を追加
             cell.textLabel?.text = text! + "についてGoogleで調べる"
+            return cell
+        }
+        else if (indexPath.row == 2)
+        {
+            // 3. テーブルの3行目に文言を追加
+            cell.textLabel?.text = text! + "についてTwitterに投稿"
             return cell
         }
         
@@ -60,7 +69,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         }
         else if (indexPath.row == 1)
         {
-            // 4. テーブルの2行目をタップした時にURLを生成してSafariを起動
+            // テーブルの2行目をタップした時にURLを生成してSafariを起動
             var url : NSString = "https://www.google.co.jp/search?q=" + text!
             var urlStr : NSString = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
             var searchURL : NSURL = NSURL(string: urlStr as String)!
@@ -69,6 +78,15 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
             if UIApplication.sharedApplication().canOpenURL(searchURL){
                 UIApplication.sharedApplication().openURL(searchURL)
             }
+        }
+        else if (indexPath.row == 2)
+        {
+            // 4. Twitter投稿用SLComposeViewControler生成
+            let twVC:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)!
+            // メッセージのセット
+            twVC.setInitialText("私は" + text! + "が好きです！")
+            // Viewの表示
+            self.presentViewController(twVC, animated: true, completion: nil)
         }
     }
 }
