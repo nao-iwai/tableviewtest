@@ -8,7 +8,7 @@
 
 import UIKit
 
-// 1. SLComposeViewControllerを使うためにSocialをimport
+// SLComposeViewControllerを使うためにSocialをimport
 import Social
 
 class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -18,11 +18,19 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     // ViewControllerから受け取る文字列を入れる変数
     var text: String?
     
+    var battery: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // 1. バッテリーの監視を許可
+        UIDevice.currentDevice().batteryMonitoringEnabled = true
+        
+        // 2. バッテリー残量を文字列に変換
+        battery = NSString(format: "%.2f", UIDevice.currentDevice().batteryLevel) as String
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,9 +38,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    // 2. テーブルの行数を追加
+    // テーブルの行数を追加
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     // セルのテキストを追加
@@ -53,8 +61,14 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         }
         else if (indexPath.row == 2)
         {
-            // 3. テーブルの3行目に文言を追加
+            // テーブルの3行目に文言を追加
             cell.textLabel?.text = text! + "についてTwitterに投稿"
+            return cell
+        }
+        else if (indexPath.row == 3)
+        {
+            // 3. バッテリー残量を表示
+            cell.textLabel?.text = battery
             return cell
         }
         
@@ -81,7 +95,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         }
         else if (indexPath.row == 2)
         {
-            // 4. Twitter投稿用SLComposeViewControler生成
+            // Twitter投稿用SLComposeViewControler生成
             let twVC:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)!
             // メッセージのセット
             twVC.setInitialText("私は" + text! + "が好きです！")
