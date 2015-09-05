@@ -26,10 +26,10 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         
-        // 1. バッテリーの監視を許可
+        // バッテリーの監視を許可
         UIDevice.currentDevice().batteryMonitoringEnabled = true
         
-        // 2. バッテリー残量を文字列に変換
+        // バッテリー残量を文字列に変換
         battery = NSString(format: "%.2f", UIDevice.currentDevice().batteryLevel) as String
     }
     
