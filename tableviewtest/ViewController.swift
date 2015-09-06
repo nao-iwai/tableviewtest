@@ -18,6 +18,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // 選択状態を解除するIndexPathを入れる変数
     var selectedRow: NSIndexPath?
     
+    // セクション名
+    let sections = ["刀剣男士一覧"]
+    
     // 刀剣男士名に変更
     let texts = ["三日月宗近",
         "小狐丸",
@@ -65,8 +68,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         "太郎太刀",
         "次郎太刀",
         "日本号",
-        "御手杵",
-        ""
+        "御手杵"
     ]
     
     override func viewDidLoad() {
@@ -96,6 +98,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return texts.count
     }
+    
+    // セクションの数
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return sections.count
+    }
 
     // セルのテキストを追加
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -103,6 +110,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         cell.textLabel?.text = texts[indexPath.row]
         return cell
+    }
+    
+    // セクションの名前
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section]
     }
     
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {

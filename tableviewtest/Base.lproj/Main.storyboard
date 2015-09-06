@@ -16,12 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="H6b-yd-8Ei">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="H6b-yd-8Ei">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H6b-yd-8Ei" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="20" id="IiR-0J-7wk"/>
+                            <constraint firstItem="H6b-yd-8Ei" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="P0L-SG-OHj"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="H6b-yd-8Ei" secondAttribute="bottom" id="VqF-ov-heb"/>
+                            <constraint firstAttribute="trailing" secondItem="H6b-yd-8Ei" secondAttribute="trailing" id="bLU-Uu-yBW"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="H6b-yd-8Ei" id="iUt-r4-a8z"/>
