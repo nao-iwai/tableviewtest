@@ -49,12 +49,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Blm-Tx-76J">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Blm-Tx-76J">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ikc-MM-hQ6" firstAttribute="top" secondItem="Blm-Tx-76J" secondAttribute="bottom" id="Zbq-1C-gGm"/>
+                            <constraint firstItem="Blm-Tx-76J" firstAttribute="leading" secondItem="3e2-VJ-FMg" secondAttribute="leading" id="ZuY-mk-Pei"/>
+                            <constraint firstItem="Blm-Tx-76J" firstAttribute="top" secondItem="3e2-VJ-FMg" secondAttribute="top" constant="20" id="aD8-Ge-Ihq"/>
+                            <constraint firstAttribute="trailing" secondItem="Blm-Tx-76J" secondAttribute="trailing" id="hEk-gx-Q9D"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Blm-Tx-76J" id="V0z-7n-oJw"/>
