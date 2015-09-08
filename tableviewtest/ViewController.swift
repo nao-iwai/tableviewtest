@@ -22,53 +22,54 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let sections = ["刀剣男士一覧"]
     
     // 刀剣男士名に変更
-    let texts = ["三日月宗近",
-        "小狐丸",
-        "石切丸",
-        "岩融",
-        "今剣",
-        "にっかり青江",
-        "鳴狐",
-        "一期一振",
-        "鯰尾藤四郎",
-        "骨喰藤四郎",
-        "平野藤四郎",
-        "厚藤四郎",
-        "前田藤四郎",
-        "秋田藤四郎",
-        "博多藤四郎",
-        "乱藤四郎",
-        "五虎退",
-        "薬研藤四郎",
-        "鶯丸",
-        "明石国行",
-        "蛍丸",
-        "愛染国俊",
-        "蜻蛉切",
-        "燭台切光忠",
-        "江雪左文字",
-        "宗三左文字",
-        "小夜左文字",
-        "加州清光",
-        "大和守安定",
-        "歌仙兼定",
-        "和泉守兼定",
-        "陸奥守吉行",
-        "山姥切国広",
-        "山伏国広",
-        "堀川国広",
-        "蜂須賀虎徹",
-        "浦島虎徹",
-        "長曽祢虎徹",
-        "大倶利伽羅",
-        "へし切長谷部",
-        "獅子王",
-        "同田貫正国",
-        "鶴丸国永",
-        "太郎太刀",
-        "次郎太刀",
-        "日本号",
-        "御手杵"
+    let texts: [(rare: Int, name: String)] = [
+        (5,"三日月宗近"),
+        (3,"小狐丸"),
+        (3,"石切丸"),
+        (3,"岩融"),
+        (1,"今剣"),
+        (2,"にっかり青江"),
+        (2,"鳴狐"),
+        (4,"一期一振"),
+        (2,"鯰尾藤四郎"),
+        (2,"骨喰藤四郎"),
+        (1,"平野藤四郎"),
+        (1,"厚藤四郎"),
+        (1,"前田藤四郎"),
+        (1,"秋田藤四郎"),
+        (1,"博多藤四郎"),
+        (1,"乱藤四郎"),
+        (1,"五虎退"),
+        (1,"薬研藤四郎"),
+        (4,"鶯丸"),
+        (3,"明石国行"),
+        (4,"蛍丸"),
+        (1,"愛染国俊"),
+        (3,"蜻蛉切"),
+        (3,"燭台切光忠"),
+        (4,"江雪左文字"),
+        (2,"宗三左文字"),
+        (1,"小夜左文字"),
+        (2,"加州清光"),
+        (2,"大和守安定"),
+        (2,"歌仙兼定"),
+        (3,"和泉守兼定"),
+        (2,"陸奥守吉行"),
+        (2,"山姥切国広"),
+        (3,"山伏国広"),
+        (2,"堀川国広"),
+        (2,"蜂須賀虎徹"),
+        (2,"浦島虎徹"),
+        (2,"長曽祢虎徹"),
+        (3,"大倶利伽羅"),
+        (2,"へし切長谷部"),
+        (3,"獅子王"),
+        (3,"同田貫正国"),
+        (4,"鶴丸国永"),
+        (3,"太郎太刀"),
+        (3,"次郎太刀"),
+        (4,"日本号"),
+        (3,"御手杵")
     ]
     
     override func viewDidLoad() {
@@ -108,7 +109,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
-        cell.textLabel?.text = texts[indexPath.row]
+        cell.textLabel?.text = texts[indexPath.row].name
+        
+        switch (texts[indexPath.row].rare)
+        {
+        case 1:
+            cell.backgroundColor = UIColor.whiteColor();
+            break
+        case 2:
+            cell.backgroundColor = UIColor.blueColor();
+            break
+        case 3:
+            cell.backgroundColor = UIColor.greenColor();
+            break
+        case 4:
+            cell.backgroundColor = UIColor.orangeColor();
+            break
+        case 5:
+            cell.backgroundColor = UIColor.magentaColor();
+            break
+        default:
+            break
+        }
+        
         return cell
     }
     
@@ -121,7 +144,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         println(texts[indexPath.row])
         
         // SecondViewControllerに渡す文字列をセット
-        selectedText = texts[indexPath.row]
+        selectedText = texts[indexPath.row].name
         
         // SecondViewControllerへ遷移するSegueを呼び出す
         performSegueWithIdentifier("showSecondView",sender: nil)
