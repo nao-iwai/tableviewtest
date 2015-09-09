@@ -18,19 +18,13 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     // ViewControllerから受け取る文字列を入れる変数
     var text: String?
     
-    var battery: String?
+    var yomi: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        // バッテリーの監視を許可
-        UIDevice.currentDevice().batteryMonitoringEnabled = true
-        
-        // バッテリー残量を文字列に変換
-        battery = NSString(format: "%.2f", UIDevice.currentDevice().batteryLevel) as String
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,7 +50,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         else if (indexPath.row == 1)
         {
             // テーブルの2行目に文言を追加
-            cell.textLabel?.text = text! + "についてGoogleで調べる"
+            cell.textLabel?.text = "読み方：" + yomi!
             return cell
         }
         else if (indexPath.row == 2)
@@ -67,9 +61,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         }
         else if (indexPath.row == 3)
         {
-            // 3. バッテリー残量を表示
-            cell.textLabel?.text = battery
-            return cell
+
         }
         
         return cell
