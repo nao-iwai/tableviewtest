@@ -56,12 +56,14 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         else if (indexPath.row == 2)
         {
             // テーブルの3行目に文言を追加
-            cell.textLabel?.text = text! + "についてTwitterに投稿"
+            cell.textLabel?.text = text! + "についてGoogleで調べる"
             return cell
         }
         else if (indexPath.row == 3)
         {
-
+            // テーブルの4行目に文言を追加
+            cell.textLabel?.text = text! + "についてPixivで調べる"
+            return cell
         }
         
         return cell
@@ -73,7 +75,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         {
             self.dismissViewControllerAnimated(true, completion: nil)
         }
-        else if (indexPath.row == 1)
+        else if (indexPath.row == 2)
         {
             // テーブルの2行目をタップした時にURLを生成してSafariを起動
             var url : NSString = "https://www.google.co.jp/search?q=" + text!
@@ -85,14 +87,17 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 UIApplication.sharedApplication().openURL(searchURL)
             }
         }
-        else if (indexPath.row == 2)
+        else if (indexPath.row == 3)
         {
-            // Twitter投稿用SLComposeViewControler生成
-            let twVC:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)!
-            // メッセージのセット
-            twVC.setInitialText("私は" + text! + "が好きです！")
-            // Viewの表示
-            self.presentViewController(twVC, animated: true, completion: nil)
+            // テーブルの3行目をタップした時にURLを生成してSafariを起動
+            var url : NSString = "http://www.pixiv.net/search.php?s_mode=s_tag_full&word=" + text!
+            var urlStr : NSString = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+            var searchURL : NSURL = NSURL(string: urlStr as String)!
+            println(searchURL)
+            
+            if UIApplication.sharedApplication().canOpenURL(searchURL){
+                UIApplication.sharedApplication().openURL(searchURL)
+            }
         }
     }
 }
