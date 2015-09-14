@@ -159,6 +159,7 @@
 		FFC8F3C21B92C57A00B6962F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = senseiswift;
 				TargetAttributes = {

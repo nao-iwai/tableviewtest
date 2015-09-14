@@ -20,6 +20,8 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     var yomi: String?
     
+    var height: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +36,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     // テーブルの行数を追加
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     // セルのテキストを追加
@@ -56,12 +58,18 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         else if (indexPath.row == 2)
         {
             // テーブルの3行目に文言を追加
-            cell.textLabel?.text = text! + "についてGoogleで調べる"
+            cell.textLabel?.text = "身長：" + String(height!) + "cm";
             return cell
         }
         else if (indexPath.row == 3)
         {
             // テーブルの4行目に文言を追加
+            cell.textLabel?.text = text! + "についてGoogleで調べる"
+            return cell
+        }
+        else if (indexPath.row == 4)
+        {
+            // テーブルの5行目に文言を追加
             cell.textLabel?.text = text! + "についてPixivで調べる"
             return cell
         }
@@ -75,9 +83,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         {
             self.dismissViewControllerAnimated(true, completion: nil)
         }
-        else if (indexPath.row == 2)
+        else if (indexPath.row == 3)
         {
-            // テーブルの2行目をタップした時にURLを生成してSafariを起動
+            // テーブルの4行目をタップした時にURLを生成してSafariを起動
             var url : NSString = "https://www.google.co.jp/search?q=" + text!
             var urlStr : NSString = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
             var searchURL : NSURL = NSURL(string: urlStr as String)!
@@ -87,9 +95,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 UIApplication.sharedApplication().openURL(searchURL)
             }
         }
-        else if (indexPath.row == 3)
+        else if (indexPath.row == 4)
         {
-            // テーブルの3行目をタップした時にURLを生成してSafariを起動
+            // テーブルの5行目をタップした時にURLを生成してSafariを起動
             var url : NSString = "http://www.pixiv.net/search.php?s_mode=s_tag_full&word=" + text!
             var urlStr : NSString = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
             var searchURL : NSURL = NSURL(string: urlStr as String)!
