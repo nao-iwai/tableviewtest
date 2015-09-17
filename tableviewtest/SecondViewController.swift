@@ -36,7 +36,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     // テーブルの行数を追加
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     // セルのテキストを追加
@@ -73,6 +73,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
             cell.textLabel?.text = text! + "についてPixivで調べる"
             return cell
         }
+        else if (indexPath.row == 5)
+        {
+            // テーブルの6行目に文言を追加
+            cell.textLabel?.text = text! + "についてニコニコ大百科で調べる"
+            return cell
+        }
         
         return cell
     }
@@ -99,6 +105,18 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         {
             // テーブルの5行目をタップした時にURLを生成してSafariを起動
             var url : NSString = "http://www.pixiv.net/search.php?s_mode=s_tag_full&word=" + text!
+            var urlStr : NSString = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+            var searchURL : NSURL = NSURL(string: urlStr as String)!
+            println(searchURL)
+            
+            if UIApplication.sharedApplication().canOpenURL(searchURL){
+                UIApplication.sharedApplication().openURL(searchURL)
+            }
+        }
+        else if (indexPath.row == 5)
+        {
+            // テーブルの6行目をタップした時にURLを生成してSafariを起動
+            var url : NSString = "http://dic.nicovideo.jp/a/" + text! + "(刀剣乱舞)"
             var urlStr : NSString = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
             var searchURL : NSURL = NSURL(string: urlStr as String)!
             println(searchURL)
