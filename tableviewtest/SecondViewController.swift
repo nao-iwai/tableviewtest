@@ -64,19 +64,19 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         else if (indexPath.row == 3)
         {
             // テーブルの4行目に文言を追加
-            cell.textLabel?.text = text! + "についてGoogleで調べる"
+            cell.textLabel?.text = "Googleで調べる"
             return cell
         }
         else if (indexPath.row == 4)
         {
             // テーブルの5行目に文言を追加
-            cell.textLabel?.text = text! + "についてPixivで調べる"
+            cell.textLabel?.text = "Pixivで調べる"
             return cell
         }
         else if (indexPath.row == 5)
         {
             // テーブルの6行目に文言を追加
-            cell.textLabel?.text = text! + "についてニコニコ大百科で調べる"
+            cell.textLabel?.text = "ニコニコ大百科で調べる"
             return cell
         }
         
