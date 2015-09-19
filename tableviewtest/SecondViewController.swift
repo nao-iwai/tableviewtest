@@ -36,7 +36,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     // テーブルの行数を追加
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     // セルのテキストを追加
@@ -77,6 +77,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         {
             // テーブルの6行目に文言を追加
             cell.textLabel?.text = "ニコニコ大百科で調べる"
+            return cell
+        }
+        else if (indexPath.row == 6)
+        {
+            // テーブルの6行目に文言を追加
+            cell.textLabel?.text = "刀剣男士一覧に戻る"
             return cell
         }
         
@@ -124,6 +130,10 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
             if UIApplication.sharedApplication().canOpenURL(searchURL){
                 UIApplication.sharedApplication().openURL(searchURL)
             }
+        }
+        else if (indexPath.row == 6)
+        {
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
 }
