@@ -39,6 +39,16 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         return 7
     }
     
+    // セクションの数
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    // セクションの名前
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return text
+    }
+    
     // セルのテキストを追加
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
