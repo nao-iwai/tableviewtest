@@ -56,7 +56,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         if (indexPath.row == 0)
         {
             // 受け取った文字列をセルに表示
-            cell.textLabel?.text = text
+            cell.textLabel?.text = "名前：" + text!
             return cell
         }
         else if (indexPath.row == 1)
