@@ -22,6 +22,8 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     var height: Int?
     
+    var rare: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +38,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     // テーブルの行数を追加
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 8
     }
     
     // セクションの数
@@ -68,28 +70,34 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         else if (indexPath.row == 2)
         {
             // テーブルの3行目に文言を追加
-            cell.textLabel?.text = "身長：" + String(height!) + "cm";
+            cell.textLabel?.text = "レア：" + String(rare!);
             return cell
         }
         else if (indexPath.row == 3)
+        {
+            // テーブルの3行目に文言を追加
+            cell.textLabel?.text = "身長：" + String(height!) + "cm";
+            return cell
+        }
+        else if (indexPath.row == 4)
         {
             // テーブルの4行目に文言を追加
             cell.textLabel?.text = "Googleで調べる"
             return cell
         }
-        else if (indexPath.row == 4)
+        else if (indexPath.row == 5)
         {
             // テーブルの5行目に文言を追加
             cell.textLabel?.text = "Pixivで調べる"
             return cell
         }
-        else if (indexPath.row == 5)
+        else if (indexPath.row == 6)
         {
             // テーブルの6行目に文言を追加
             cell.textLabel?.text = "ニコニコ大百科で調べる"
             return cell
         }
-        else if (indexPath.row == 6)
+        else if (indexPath.row == 7)
         {
             // テーブルの6行目に文言を追加
             cell.textLabel?.text = "刀剣男士一覧に戻る"
@@ -105,7 +113,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         {
             self.dismissViewControllerAnimated(true, completion: nil)
         }
-        else if (indexPath.row == 3)
+        else if (indexPath.row == 4)
         {
             // テーブルの4行目をタップした時にURLを生成してSafariを起動
             var url : NSString = "https://www.google.co.jp/search?q=" + text!
@@ -117,7 +125,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 UIApplication.sharedApplication().openURL(searchURL)
             }
         }
-        else if (indexPath.row == 4)
+        else if (indexPath.row == 5)
         {
             // テーブルの5行目をタップした時にURLを生成してSafariを起動
             var url : NSString = "http://www.pixiv.net/search.php?s_mode=s_tag_full&word=" + text!
@@ -129,7 +137,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 UIApplication.sharedApplication().openURL(searchURL)
             }
         }
-        else if (indexPath.row == 5)
+        else if (indexPath.row == 6)
         {
             // テーブルの6行目をタップした時にURLを生成してSafariを起動
             var url : NSString = "http://dic.nicovideo.jp/a/" + text! + "(刀剣乱舞)"
@@ -141,7 +149,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 UIApplication.sharedApplication().openURL(searchURL)
             }
         }
-        else if (indexPath.row == 6)
+        else if (indexPath.row == 7)
         {
             self.dismissViewControllerAnimated(true, completion: nil)
         }

@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var selectedText: String?
     var selectedYomi: String?
     var selectedHeight: Int?
+    var selectedRare: Int?
     
     // 選択状態を解除するIndexPathを入れる変数
     var selectedRow: NSIndexPath?
@@ -149,6 +150,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         selectedText = texts[indexPath.row].name
         selectedYomi = texts[indexPath.row].yomi
         selectedHeight = texts[indexPath.row].height
+        selectedRare = texts[indexPath.row].rare
         
         // SecondViewControllerへ遷移するSegueを呼び出す
         performSegueWithIdentifier("showSecondView",sender: nil)
@@ -166,6 +168,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             secondVC.text = selectedText
             secondVC.yomi = selectedYomi
             secondVC.height = selectedHeight
+            secondVC.rare = selectedRare
         }
     }
 }
