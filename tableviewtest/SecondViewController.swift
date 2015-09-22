@@ -101,6 +101,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         {
             // テーブルの6行目に文言を追加
             cell.textLabel?.text = "刀剣男士一覧に戻る"
+            cell.backgroundColor = UIColor.grayColor();
             return cell
         }
         
